@@ -43,5 +43,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return employeeRepository.save(employee);
     }
+
+
+    @Override
+    public String deleteEmployee(Long id) {
+        Employee empObj = employeeRepository.findById(id).get();
+        String deleteMsg = null;
+        if(empObj != null) {
+            employeeRepository.delete(empObj);
+            deleteMsg = "Employee Deleted Successfully for id : " + id;
+        }
+        return deleteMsg;
+    }
     
 }
