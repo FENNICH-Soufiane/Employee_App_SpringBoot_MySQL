@@ -10,4 +10,8 @@ public interface EmployeeService {
 
     Employee findById(Long id);
 
+    Employee createEmployee(Employee employee);
+
+    Employee updateEmployee(Employee employee);
+
 }
