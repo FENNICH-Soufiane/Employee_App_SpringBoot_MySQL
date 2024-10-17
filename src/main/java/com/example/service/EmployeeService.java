@@ -7,4 +7,7 @@ import com.example.entity.Employee;
 public interface EmployeeService {
 
     List<Employee> fetchAllEmployees();
+
+    Employee findById(Long id);
+
 }
