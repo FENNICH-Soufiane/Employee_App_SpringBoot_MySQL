@@ -6,12 +6,13 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatTableModule, MatSortModule],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatTableModule, MatSortModule,MatPaginatorModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -26,6 +27,7 @@ export class HomeComponent   {
   constructor(private employeeService: EmployeeService) { }
 
   @ViewChild(MatSort) sort: any;
+  @ViewChild(MatPaginator) paginator: any;
 
   // ngAfterViewInit() {
   //   this.dataSource.sort = this.sort;
@@ -36,6 +38,7 @@ export class HomeComponent   {
       this.employees = data;
       this.dataSource = new MatTableDataSource<Employee>(data);
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     })
   }
 
