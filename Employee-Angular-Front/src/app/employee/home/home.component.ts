@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatTableModule],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatTableModule, MatSortModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 
-export class HomeComponent {
+export class HomeComponent   {
   displayedColumns: string[] = ['id', 'name', 'email', 'salary'];
   dataSource = new MatTableDataSource<Employee>();
 
@@ -24,10 +25,17 @@ export class HomeComponent {
 
   constructor(private employeeService: EmployeeService) { }
 
+  @ViewChild(MatSort) sort: any;
+
+  // ngAfterViewInit() {
+  //   this.dataSource.sort = this.sort;
+  // }
+
   ngOnInit(): void {
     this.employeeService.fetchAllEmployees().subscribe((data) => {
       this.employees = data;
       this.dataSource = new MatTableDataSource<Employee>(data);
+      this.dataSource.sort = this.sort;
     })
   }
 
@@ -36,7 +44,7 @@ export class HomeComponent {
       item.name.toLowerCase().includes(input.toLowerCase()) ||
       item.email.toLowerCase().includes(input.toLowerCase()) ||
       item.salary.toString().includes(input)
-      
+
     )
     this.dataSource = new MatTableDataSource<Employee>(this.filteredEmployees);
   }

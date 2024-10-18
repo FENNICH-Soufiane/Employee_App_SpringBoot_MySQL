@@ -8,32 +8,32 @@
     <button mat-flat-button style="width: 100px; float: right; margin: 15px;">Add +</button>
     <br>
     <!-- table -->
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
       
         <!-- Position Column -->
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
           <td mat-cell *matCellDef="let employees"> {{employees.id}} </td>
         </ng-container>
       
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
           <td mat-cell *matCellDef="let employees"> {{employees.name}} </td>
         </ng-container>
       
         <!-- Weight Column -->
         <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
           <td mat-cell *matCellDef="let employees"> {{employees.email}} </td>
         </ng-container>
       
         <!-- Symbol Column -->
         <ng-container matColumnDef="salary">
-          <th mat-header-cell *matHeaderCellDef> Salary </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary </th>
           <td mat-cell *matCellDef="let employees"> {{employees.salary}} </td>
         </ng-container>
       
