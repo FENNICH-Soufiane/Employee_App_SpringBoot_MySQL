@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.demo.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.entity.Employee;
-import com.example.service.EmployeeService;
+import com.example.demo.entity.Employee;
+import com.example.demo.service.EmployeeService;
 
 @CrossOrigin(maxAge = 3360)
 @RestController
