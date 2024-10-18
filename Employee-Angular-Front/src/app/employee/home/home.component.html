@@ -3,7 +3,7 @@
     <h3 style="color: blueviolet; text-align: center;"><strong>Full Stack with Angular 18 Spring Boot and MySql</strong></h3>
     <br>
     <mat-form-field>
-        <input matInput placeholder="Search Employee Here" type="text">
+        <input (input)="searchEmployee(filter.value)" matInput placeholder="Search Employee Here" type="text" #filter>
     </mat-form-field>
     <button mat-flat-button style="width: 100px; float: right; margin: 15px;">Add +</button>
     <br>
