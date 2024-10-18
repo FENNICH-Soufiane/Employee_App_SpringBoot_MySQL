@@ -4,6 +4,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { Employee } from '../employee';
+import { EmployeeService } from '../employee.service';
 
 
 @Component({
@@ -19,4 +20,13 @@ export class HomeComponent {
   dataSource = new MatTableDataSource<Employee>();
 
   employees:Employee[] = [];
+
+  constructor(private employeeService:EmployeeService) {}
+
+  ngOnInit():void {
+    this.employeeService.fetchAllEmployees().subscribe((data) => {
+      this.employees = data;
+      this.dataSource = new MatTableDataSource<Employee>(data);
+    })
+  }
 }
