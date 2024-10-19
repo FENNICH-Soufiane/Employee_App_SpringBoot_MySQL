@@ -83,4 +83,17 @@ export class HomeComponent   {
     });
   }
 
+  deleteEmployee(id: number) {
+    this.employeeService.deleteEmployee(id).subscribe({
+      next: () => {
+        // Mise à jour de la liste des employés sans rechargement de la page
+        this.employees = this.employees.filter(employee => employee.id !== id);
+        console.log("Employee deleted successfully");
+        window.location.reload();
+      },
+      error: (err) => {
+        console.error("Error deleting employee:", err);
+      }
+    });
+  }
 }
