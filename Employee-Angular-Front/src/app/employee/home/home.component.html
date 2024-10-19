@@ -5,7 +5,7 @@
     <mat-form-field>
         <input (input)="searchEmployee(filter.value)" matInput placeholder="Search Employee Here" type="text" #filter>
     </mat-form-field>
-    <button mat-flat-button style="width: 100px; float: right; margin: 15px;">Add +</button>
+    <button (click)="openDialog(employee)" mat-flat-button style="width: 100px; float: right; margin: 15px;">Add +</button>
     <br>
     <!-- table -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
