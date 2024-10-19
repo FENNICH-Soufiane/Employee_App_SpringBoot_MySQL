@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogModule, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
    standalone: true,
    imports: [MatDialogModule, MatDialogTitle, MatDialogContent, 
       MatDialogActions, MatFormFieldModule, MatInputModule, 
-      MatIconModule, MatButtonModule, CommonModule, FormsModule],
+      MatIconModule, MatButtonModule, CommonModule, FormsModule, MatDialogClose ],
    templateUrl: './employee-form.component.html',
    styleUrl: './employee-form.component.css',
    changeDetection: ChangeDetectionStrategy.OnPush,

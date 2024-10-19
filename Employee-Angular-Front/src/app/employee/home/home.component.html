@@ -16,25 +16,36 @@
         <!-- Position Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-          <td mat-cell *matCellDef="let employees"> {{employees.id}} </td>
+          <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
         </ng-container>
       
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-          <td mat-cell *matCellDef="let employees"> {{employees.name}} </td>
+          <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
         </ng-container>
       
         <!-- Weight Column -->
         <ng-container matColumnDef="email">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-          <td mat-cell *matCellDef="let employees"> {{employees.email}} </td>
+          <td mat-cell *matCellDef="let employee"> {{employee.email}} </td>
         </ng-container>
       
         <!-- Symbol Column -->
         <ng-container matColumnDef="salary">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary </th>
-          <td mat-cell *matCellDef="let employees"> {{employees.salary}} </td>
+          <td mat-cell *matCellDef="let employee"> {{employee.salary}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+          <td mat-cell *matCellDef="let employee"> <button (click)="openDialog(employee)" mat-flat-button style="height: 27px; width: auto;" >Edit</button> </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
+          <td mat-cell *matCellDef="let employee"> <button mat-flat-button style="height: 27px; width: auto;" color="warn">Delete</button> </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

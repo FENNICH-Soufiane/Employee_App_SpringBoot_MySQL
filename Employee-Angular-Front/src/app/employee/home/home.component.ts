@@ -20,7 +20,7 @@ import { EmployeeFormComponent } from '../employee-form/employee-form.component'
 })
 
 export class HomeComponent   {
-  displayedColumns: string[] = ['id', 'name', 'email', 'salary'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'salary', 'edit', 'delete'];
   dataSource = new MatTableDataSource<Employee>();
 
   employees: Employee[] = [];
